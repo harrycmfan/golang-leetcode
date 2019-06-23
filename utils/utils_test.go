@@ -8,7 +8,7 @@ import (
 )
 
 func TestCapToLowerCase(t *testing.T) {
-	fmt.Println(utils.CapToLowerCase("Longest Substring Without Repeating Characters"))
+	fmt.Println(utils.CapToLowerCase("Two Sum II - Input array is sorted"))
 }
 
 // Interpreted string literals are character sequences between double quotes "" using the (possibly multi-byte) UTF-8 encoding of individual characters.
