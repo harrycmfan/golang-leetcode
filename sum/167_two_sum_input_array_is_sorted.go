@@ -1,51 +1,35 @@
 package sum
 
-import "sort"
+func twoSumInputArrayIsSorted(numbers []int, target int) []int {
+	start := 0
+	end := len(numbers)-1
 
-func threeSum(nums []int) [][]int {
-	if len(nums) <= 2 {
-		return [][]int{}
-	}
-	sort.Ints(nums)
-	if nums[0] > 0 {
-		return [][]int{}
-	}
-	if nums[0] == 0 && nums[1] == 0 && nums[2] == 0 {
-		return [][]int{{0,0,0}}
-	}
-
-	result := [][]int{}
-	for i:=0; i<len(nums);i++ {
-		if nums[i] > 0 {
-			break
+	for start < end {
+		sum := numbers[start] + numbers[end]
+		if sum == target {
+			return []int{start, end}
 		}
-		left := i+1
-		right := len(nums)-1
-		for ;left < right; {
-			if nums[i] + nums[left] + nums[right] == 0 {
-				result = append(result, []int{nums[i], nums[left], nums[right]})
-				for left < len(nums)-1 && nums[left] == nums[left+1] {
-					left++
-				}
-				for right > 0 && nums[right] == nums[right-1] {
-					right--
-				}
-				left++
-				right--
-			} else if nums[i] + nums[left] + nums[right] > 0 {
-				right--
-			} else {
-				left++
-			}
+		if sum > target {
+			end--
 		}
-		for i < len(nums)-1 && nums[i] == nums[i+1] {
-			i++
+		if sum < target {
+			start++
 		}
 	}
-	return result
+	return []int{}
 }
 
-// 最笨的办法，3次遍历，n3 (这里其实还不是很好处理，因为还要去重)
-// 首先第一印象必须要sort，因为只有排序好了，才方便后面遍历来取和
-// 排序后，对于第一个数，后面通过left，right 2 pointer来相加取和，注意相同的数值要跳过，避免重复
-// 同理找到一波组合之后，需要判断当前后面的数是不是跟现在一样，是就要跳过
+
+// func twoSum(nums []int, target int) []int {
+//     myMap := map[int]int{}
+//     for i, val := range nums {
+//         index, ok := myMap[val]
+//         if ok {
+//             return []int{index+1, i+1}
+//         }
+//         myMap[target-val] = i
+//     }
+//     return []int{}
+// }
+
+// 这个是之前用map的方法，这个需要O(n)的space，既然array已经sort了，那么可以用双指针来减少space
