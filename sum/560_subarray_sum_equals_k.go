@@ -52,3 +52,4 @@ func subarraySum(nums []int, k int) int {
 
 // 遍历一次，用一个map保存到目前为止的sum次数，因为比如前一段相加的sum是a, 后面一段相加的sum是b
 // 假如b-a = k，那么意味着a到b这一段只有满足条件的情况出现，那么count就要加上前面一段sum出现a的次数
+// 注意这里不可能slicing window,因为这里数组中的数字不是sort的，并且也不是求范围
