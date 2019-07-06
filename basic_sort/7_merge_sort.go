@@ -1,4 +1,4 @@
-package basicSort
+package basic_sort
 
 func mergesort(a []int, n int) []int {
 	tmp := make([]int, n)
