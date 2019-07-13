@@ -19,4 +19,6 @@ func TestTypeOfSubstring(t *testing.T) {
 	fmt.Printf("%v, %T",s[0], s[0])
 
 	fmt.Println(map[uint8]int{s[0]:1})
+
+	fmt.Println(("2"[0]-48) * ("5"[0]-48))
 }
