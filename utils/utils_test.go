@@ -8,7 +8,7 @@ import (
 )
 
 func TestCapToLowerCase(t *testing.T) {
-	fmt.Println(utils.CapToLowerCase("Longest Palindromic Substring"))
+	fmt.Println(utils.CapToLowerCase("Permutation in String"))
 }
 
 // Interpreted string literals are character sequences between double quotes "" using the (possibly multi-byte) UTF-8 encoding of individual characters.
