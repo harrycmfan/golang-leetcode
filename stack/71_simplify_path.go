@@ -60,7 +60,7 @@ func simplifyPath(path string) string {
 	for _, dir := range stack {
 		res += "/" + dir
 	}
-	if len(res) == 0 {
+	if len(res) == 0 { // edge case
 		res = "/"
 	}
 	return res
