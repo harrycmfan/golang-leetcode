@@ -8,7 +8,7 @@ import (
 )
 
 func TestCapToLowerCase(t *testing.T) {
-	fmt.Println(utils.CapToLowerCase("Kth Largest Element in an Array"))
+	fmt.Println(utils.CapToLowerCase("128 Longest Consecutive Sequence"))
 }
 
 // Interpreted string literals are character sequences between double quotes "" using the (possibly multi-byte) UTF-8 encoding of individual characters.
