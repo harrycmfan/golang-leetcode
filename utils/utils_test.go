@@ -8,7 +8,7 @@ import (
 )
 
 func TestCapToLowerCase(t *testing.T) {
-	fmt.Println(utils.CapToLowerCase("128 Longest Consecutive Sequence"))
+	fmt.Println(utils.CapToLowerCase("102 Binary Tree Level Order Traversal"))
 }
 
 // Interpreted string literals are character sequences between double quotes "" using the (possibly multi-byte) UTF-8 encoding of individual characters.
