@@ -42,3 +42,34 @@ func bfs(root *TreeNode, level int, res *[][]int) {
 		bfs(root.Right, level+1, res)
 	}
 }
+
+type A struct {
+	Node *TreeNode
+	Level int
+}
+
+func levelOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return [][]int{}
+	}
+	var res [][]int
+	queue := []A{A{
+		Node: root,
+		Level: 1,
+	}}
+	for len(queue) > 0 {
+		elem := queue[0]
+		queue = queue[1:]
+		if len(res) < elem.Level {
+			res = append(res, []int{})
+		}
+		res[elem.Level-1] = append(res[elem.Level-1], elem.Node.Val)
+		if elem.Node.Left != nil {
+			queue = append(queue, A{Node:elem.Node.Left, Level:elem.Level+1})
+		}
+		if elem.Node.Right != nil {
+			queue = append(queue, A{Node:elem.Node.Right, Level:elem.Level+1})
+		}
+	}
+	return res
+}
